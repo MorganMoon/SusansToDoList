@@ -3,6 +3,7 @@ package morgan.todolist;
 /**
  * Created by Morgan on 8/18/2015.
  */
+import com.sun.deploy.util.StringUtils;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,10 +24,9 @@ public class CreateListPopupController {
     }
 
     public void addList(){
-        if(listNameInput.getText().equals("") || listNameInput.getText().equals(null) ) {
+        if(listNameInput.getText().equals("") || listNameInput.getText().equals(null) || listNameInput.getText().matches("\\p{javaWhitespace}*")) {
             ToDoList thelist2 = new ToDoList();
             Controller.toDoListListView.getItems().add(thelist2);
-
         }
         else{
             ToDoList thelist = new ToDoList(listNameInput.getText());

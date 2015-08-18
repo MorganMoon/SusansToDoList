@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
@@ -22,7 +23,7 @@
                 <Label text="2015 Susy-ToDo" />
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
             </padding>
         </HBox>
     </bottom>
@@ -47,15 +48,42 @@
             </menus>
         </MenuBar>
     </top>
-    <left>
-        <ListView fx:id="toDoListListView" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-    </left>
     <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button mnemonicParsing="false" onAction="#testing" text="Button" />
-                <TextField fx:id="inputing" />
-            </children>
-        </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
     </center>
+   <left>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="ToDo Lists" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ListView fx:id="toDoListListView" VBox.vgrow="ALWAYS" />
+            <HBox alignment="TOP_CENTER">
+               <children>
+                      <Button mnemonicParsing="false" onAction="#testing" text="Create">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="4.0" right="4.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="4.0" right="4.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
 </BorderPane>
