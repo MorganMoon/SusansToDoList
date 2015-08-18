@@ -1,6 +1,8 @@
 package morgan.todolist;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,6 +21,14 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
 
+        //toDoLists stuff
+        Controller.toDoListListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoList>() {
+            @Override
+            public void changed(ObservableValue<? extends ToDoList> observableValue, ToDoList oldValue, ToDoList newValue) {
+                Controller.listViewIndex = Controller.toDoListListView.getItems().indexOf(newValue);
+                System.out.println("Selected: " + Controller.listViewIndex + "(" + newValue + ")");
+            }
+        });
     }
 
 }
