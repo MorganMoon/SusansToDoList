@@ -22,6 +22,7 @@ public class Controller {
     public void removeList(){
         if(listViewIndex != Integer.MIN_VALUE)
             toDoListListView.getItems().remove(listViewIndex);
+        update();
     }
 
     public void resetListListView(){
