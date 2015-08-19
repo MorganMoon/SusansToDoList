@@ -4,6 +4,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+import java.io.*;
 
 public class Controller {
     public static ListView<ToDoList> toDoListListView;
@@ -21,6 +24,10 @@ public class Controller {
             toDoListListView.getItems().remove(listViewIndex);
     }
 
+    public void resetListListView(){
+        toDoListListView.getItems().clear();
+    }
+
     public void createItem() throws Exception {
         if(toDoListListView.getItems().isEmpty()){
             System.out.println("Cant Do That");
@@ -36,13 +43,40 @@ public class Controller {
         }
     }
 
-    public void exit(){
+    public void exit() throws Exception{
         save();
+        Stage stage = (Stage)listNameLabel.getScene().getWindow();
+        stage.close();
     }
 
-    public void save(){
+    public void save() throws Exception{
+        FileOutputStream fos = new FileOutputStream("SusyToDo.susy");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        for(ToDoList list : toDoListListView.getItems() ){
+            oos.writeObject(list);
+        }
         System.out.println("Content Saved...");
     }
+
+    public static void load() throws Exception{
+        File fakeFis = new File("SusyToDo.susy");
+        if(fakeFis.exists()) {
+            FileInputStream fis = new FileInputStream("SusyToDo.susy");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while (true) {
+                try {
+                    toDoListListView.getItems().add((ToDoList) ois.readObject());
+                } catch (EOFException e) {
+                    System.out.println("Done Loading");
+                    break;
+                }
+            }
+        }
+        else{
+            System.out.println("No Save exists");
+        }
+    }
+
     public static void update(){
         resetItemList();
         changeListNameLabel();

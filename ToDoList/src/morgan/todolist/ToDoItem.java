@@ -1,5 +1,6 @@
 package morgan.todolist;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +8,7 @@ import java.util.Date;
 /**
  * Created by Morgan on 8/17/2015.
  */
-public class ToDoItem {
+public class ToDoItem implements Serializable{
     private String title;
     private Date timeCreated;
     private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");

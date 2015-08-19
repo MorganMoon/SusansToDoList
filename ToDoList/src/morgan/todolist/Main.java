@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.naming.ldap.Control;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -21,6 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("Susy-ToDo");
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
+        Controller.load();
 
         //toDoLists stuff
         Controller.toDoListListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoList>() {

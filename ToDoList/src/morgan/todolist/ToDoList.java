@@ -1,11 +1,12 @@
 package morgan.todolist;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Morgan on 8/17/2015.
  */
-public class ToDoList {
+public class ToDoList implements Serializable {
     private String title;
     private ArrayList<ToDoItem> toDoItems = new ArrayList<ToDoItem>();
 
