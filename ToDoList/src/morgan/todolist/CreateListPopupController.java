@@ -51,11 +51,12 @@ public class CreateListPopupController {
     public void addItem(){
         if (listNameInput.getText().equals("") || listNameInput.getText().equals(null) || listNameInput.getText().matches("\\p{javaWhitespace}*")) {
             ToDoItem theitem2 = new ToDoItem();
-            Controller.toDoItemListView.getItems().add(theitem2);
+            Controller.toDoListListView.getItems().get(Controller.listViewIndex).getToDoItems().add(theitem2);
         } else {
             ToDoItem theitem = new ToDoItem(listNameInput.getText());
-            Controller.toDoItemListView.getItems().add(theitem);
+            Controller.toDoListListView.getItems().get(Controller.listViewIndex).getToDoItems().add(theitem);
         }
+        Controller.update();
         closeWindow();
     }
 

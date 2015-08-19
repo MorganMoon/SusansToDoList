@@ -7,8 +7,8 @@ import javafx.scene.control.ListView;
 public class Controller {
     public static ListView<ToDoList> toDoListListView;
     public static ListView<ToDoItem> toDoItemListView;
-    public static int listViewIndex; // Selected list index
-    public static int itemViewIndex; // Selected Item index
+    public static int listViewIndex = Integer.MIN_VALUE; // Selected list index
+    public static int itemViewIndex = Integer.MIN_VALUE; // Selected Item index
     public static Label listNameLabel;
 
     public void createList() throws Exception {
@@ -16,7 +16,8 @@ public class Controller {
     }
 
     public void removeList(){
-        toDoListListView.getItems().remove(listViewIndex);
+        if(listViewIndex != Integer.MIN_VALUE)
+            toDoListListView.getItems().remove(listViewIndex);
     }
 
     public void createItem() throws Exception {
@@ -28,7 +29,8 @@ public class Controller {
     }
 
     public void removeItem(){
-        toDoItemListView.getItems().remove(itemViewIndex);
+        if(itemViewIndex != Integer.MIN_VALUE)
+            toDoItemListView.getItems().remove(itemViewIndex);
     }
 
     public void exit(){
@@ -43,7 +45,6 @@ public class Controller {
         changeListNameLabel();
         if(toDoListListView.getItems().get(listViewIndex).getToDoItems().isEmpty())
         {
-            toDoListListView.getItems().get(listViewIndex).getToDoItems().add(new ToDoItem("fart"));
             System.out.println("List empty");
             for(ToDoItem item : toDoListListView.getItems().get(listViewIndex).getToDoItems()){
                 toDoItemListView.getItems().add(item);
