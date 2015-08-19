@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class ToDoList {
     private String title;
-    private ArrayList<ToDoItem> toDoItems;
+    private ArrayList<ToDoItem> toDoItems = new ArrayList<ToDoItem>();
 
     //constructors --------------------
     public ToDoList(String title) {

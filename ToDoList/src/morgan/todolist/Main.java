@@ -17,6 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("FXML/main.fxml"));
+        root.getStylesheets().add(this.getClass().getResource("DarkTheme.css").toExternalForm());
         primaryStage.setTitle("Susy-ToDo");
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
@@ -26,7 +27,16 @@ public class Main extends Application {
             @Override
             public void changed(ObservableValue<? extends ToDoList> observableValue, ToDoList oldValue, ToDoList newValue) {
                 Controller.listViewIndex = Controller.toDoListListView.getItems().indexOf(newValue);
+                Controller.update();
                 System.out.println("Selected: " + Controller.listViewIndex + "(" + newValue + ")");
+            }
+        });
+
+        //toDoItems stuff
+        Controller.toDoItemListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoItem>() {
+            @Override
+            public void changed(ObservableValue<? extends ToDoItem> observableValue, ToDoItem oldValue, ToDoItem newValue) {
+                Controller.itemViewIndex = Controller.toDoItemListView.getItems().indexOf(newValue);
             }
         });
     }

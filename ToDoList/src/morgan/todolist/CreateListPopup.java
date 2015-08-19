@@ -12,10 +12,12 @@ import javafx.stage.Stage;
 public class CreateListPopup {
 
 
-    public static void display() throws  Exception{
+    public static void display(String type) throws  Exception{
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(CreateListPopup.class.getResource("FXML/createToDoList.fxml"));
-        primaryStage.setTitle("Create List");
+        root.getStylesheets().add(CreateListPopup.class.getResource("DarkTheme.css").toExternalForm());
+        CreateListPopupController.setPopupLabel(type);
+        primaryStage.setTitle("Create " + type);
         primaryStage.setScene(new Scene(root, 230, 105));
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setResizable(false);

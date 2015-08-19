@@ -24,6 +24,12 @@ public class ToDoItem {
         this.timeCreated = new Date();
     }
 
+    //methods --------------------
+
+    public String toString(){
+        return title + " ----- " + timeCreated.toString();
+    }
+
     //getters and setters --------------------
 
     //title

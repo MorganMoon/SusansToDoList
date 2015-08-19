@@ -32,12 +32,15 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Reset" />
+                  <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="List">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" onAction="#createList" text="Create" />
+                  <MenuItem mnemonicParsing="false" onAction="#removeList" text="Remove" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -48,9 +51,6 @@
             </menus>
         </MenuBar>
     </top>
-    <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-    </center>
    <left>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -59,7 +59,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ListView fx:id="toDoListListView" VBox.vgrow="ALWAYS" />
+            <ListView fx:id="toDoListListView" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </ListView>
+            <Label text="List Controls" />
             <HBox alignment="TOP_CENTER">
                <children>
                       <Button mnemonicParsing="false" onAction="#createList" text="Create">
@@ -86,4 +91,44 @@
          </BorderPane.margin>
       </VBox>
    </left>
+   <center>
+      <HBox alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="listNameLabel" text="Choose A List">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="toDoItemListView" prefWidth="400.0" VBox.vgrow="ALWAYS" />
+                  <Label text="Item Controls" />
+                  <HBox alignment="TOP_CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#createItem" text="Create">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="4.0" right="4.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#removeItem" text="Remove">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="4.0" right="4.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
 </BorderPane>
