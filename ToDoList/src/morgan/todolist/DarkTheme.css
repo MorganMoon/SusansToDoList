@@ -1,5 +1,5 @@
 .background {
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #5E5E5E;
 }
 
 .label {
@@ -86,6 +86,10 @@
 
 .menu .left-container {
     -fx-background-color: black;
+}
+
+.menu-button {
+    -fx-background-color: derive(#1d1d1d,20%);
 }
 
 .text-field {

@@ -11,11 +11,11 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ToDoList.jar" size="29036" download="eager" />
+    <jar href="ToDoList.jar" size="29038" download="eager" />
   </resources>
-  <applet-desc  width="800" height="500" main-class="com.javafx.main.NoJavaFXFallback"  name="ToDoList" >
+  <applet-desc  width="600" height="400" main-class="com.javafx.main.NoJavaFXFallback"  name="ToDoList" >
     <param name="requiredFXVersion" value="2.2+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="500" main-class="morgan.todolist.Main"  name="ToDoList" />
+  <jfx:javafx-desc  width="600" height="400" main-class="morgan.todolist.Main"  name="ToDoList" />
   <update check="background"/>
 </jnlp>
