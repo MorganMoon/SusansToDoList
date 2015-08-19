@@ -29,8 +29,10 @@ public class Controller {
     }
 
     public void removeItem(){
-        if(itemViewIndex != Integer.MIN_VALUE)
-            toDoItemListView.getItems().remove(itemViewIndex);
+        if(itemViewIndex != Integer.MIN_VALUE) {
+            toDoListListView.getItems().get(Controller.listViewIndex).getToDoItems().remove(itemViewIndex);
+            update();
+        }
     }
 
     public void exit(){
