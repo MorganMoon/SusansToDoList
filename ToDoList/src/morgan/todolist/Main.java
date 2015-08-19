@@ -3,10 +3,12 @@ package morgan.todolist;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import javax.naming.ldap.Control;
 
@@ -24,6 +26,18 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
         Controller.load();
+
+        //Saves when use top right red X
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                try {
+                    Controller.exit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         //toDoLists stuff
         Controller.toDoListListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoList>() {

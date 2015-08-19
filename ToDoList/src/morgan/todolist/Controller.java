@@ -43,13 +43,13 @@ public class Controller {
         }
     }
 
-    public void exit() throws Exception{
+    public static void exit() throws Exception{
         save();
         Stage stage = (Stage)listNameLabel.getScene().getWindow();
         stage.close();
     }
 
-    public void save() throws Exception{
+    public static void save() throws Exception{
         FileOutputStream fos = new FileOutputStream("SusyToDo.susy");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         for(ToDoList list : toDoListListView.getItems() ){
